@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Rubik:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 0 0% 100%;
+
+    --card: 225 40% 16%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 225 40% 16%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 263 70% 76%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 291 84% 61%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 225 20% 30%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 225 20% 25%;
+    --input: 225 20% 25%;
+    --ring: 263 70% 76%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 263 70% 76%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 225 40% 16%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 225 20% 25%;
+    --sidebar-ring: 263 70% 76%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Rubik", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    touch-action: pan-y;
+    overscroll-behavior: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Montserrat", sans-serif;
+  }
+}
+
+@layer utilities {
+  .coin-pulse {
+    animation: coin-pulse 0.3s ease-out;
+  }
+
+  @keyframes coin-pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .click-animation {
+    animation:
+      click-bounce 0.15s ease-out,
+      click-rotate 0.3s ease-out;
+  }
+
+  @keyframes click-bounce {
+    0% {
+      transform: scale(1) rotate(0deg);
+    }
+    50% {
+      transform: scale(0.9) rotate(-5deg);
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+    }
+  }
+
+  @keyframes click-rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-10deg);
+    }
+    75% {
+      transform: rotate(10deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  .coin-shake {
+    animation: coin-shake 0.5s ease-in-out;
+  }
+
+  @keyframes coin-shake {
+    0%,
+    100% {
+      transform: translateX(0) rotate(0deg);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+      transform: translateX(-5px) rotate(-5deg);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+      transform: translateX(5px) rotate(5deg);
+    }
+  }
+
+  .float-number {
+    animation: float-up 1s ease-out forwards;
+  }
+
+  @keyframes float-up {
+    0% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-100px) scale(1.5);
+    }
+  }
+
+  .rocket-boost-active {
+    filter: brightness(1.3) drop-shadow(0 0 30px rgba(251, 146, 60, 1));
+    animation: boost-glow 0.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes boost-glow {
+    0% {
+      filter: brightness(1.3) drop-shadow(0 0 20px rgba(251, 146, 60, 0.8));
+    }
+    100% {
+      filter: brightness(1.5) drop-shadow(0 0 40px rgba(251, 146, 60, 1));
+    }
+  }
+}
